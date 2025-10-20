@@ -16,7 +16,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story </h2>
               <p className="text-lg text-foreground/70 mb-4">
                 Gyaan Rich was founded with a simple yet powerful mission: to revolutionize education by making quality
                 learning accessible to everyone. We believe that every student deserves expert guidance and engaging
