@@ -1,8 +1,24 @@
 import Link from "next/link"
+import Prism from "./Prism"
 
 export function HeroSection() {
   return (
     <section className="relative bg-gradient-to-br from-secondary to-secondary/90 text-secondary-foreground py-20 md:py-32 overflow-hidden">
+      {/* Prism Background */}
+      <div className="relative inset-0 w-full h-full -z-10">
+        <Prism
+          animationType="rotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.6}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0.5}
+          glow={1}
+        />
+      </div>
+      
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10"></div>

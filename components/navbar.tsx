@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,8 +23,14 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-              <span className="text-accent-foreground font-bold">GR</span>
+            <div className="bg-green-600 p-2 rounded-lg">
+              <Image 
+                src="/1000274331.png" 
+                alt="ज्ञानRich Logo" 
+                width={40} 
+                height={40}
+                className="object-contain"
+              />
             </div>
             <span>ज्ञानRich</span>
           </Link>
