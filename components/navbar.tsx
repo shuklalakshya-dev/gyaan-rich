@@ -25,7 +25,7 @@ export function Navbar() {
             <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
               <span className="text-accent-foreground font-bold">GR</span>
             </div>
-            <span>Gyaan Rich</span>
+            <span>ज्ञानRich</span>
           </Link>
 
           {/* Desktop Navigation */}
