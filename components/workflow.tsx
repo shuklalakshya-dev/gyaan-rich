@@ -81,17 +81,17 @@ export function Workflow() {
 
   return (
     <section className="relative py-20 md:py-32 bg-background overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Background Elements - Static for better performance */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent font-semibold text-sm mb-4">
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-accent rounded-full"></span>
             How It Works
           </div>
           <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
@@ -121,30 +121,25 @@ export function Workflow() {
                 >
                   {/* Step Number Circle */}
                   <div className="flex justify-center mb-8">
-                    <div className={`relative w-48 h-48 rounded-full bg-gradient-to-br ${step.gradient} border-4 border-background flex items-center justify-center transition-all duration-500 ${
-                      isActive ? "scale-110 shadow-2xl shadow-accent/30" : "scale-100"
+                    <div className={`relative w-48 h-48 rounded-full bg-gradient-to-br ${step.gradient} border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${
+                      isActive ? "scale-105" : "scale-100"
                     }`}>
-                      <div className={`w-40 h-40 rounded-full bg-card flex flex-col items-center justify-center transition-all duration-500 ${
+                      <div className={`w-40 h-40 rounded-full bg-card flex flex-col items-center justify-center transition-opacity duration-200 ${
                         isActive ? "bg-gradient-to-br " + step.hoverGradient : ""
                       }`}>
-                        <Icon className={`w-12 h-12 text-accent mb-2 transition-all duration-500 ${
-                          isActive ? "scale-125 rotate-12" : ""
+                        <Icon className={`w-12 h-12 text-accent mb-2 transition-transform duration-200 ${
+                          isActive ? "scale-110 rotate-6" : ""
                         }`} />
                         <div className="text-3xl font-bold text-accent">{String(index + 1).padStart(2, '0')}</div>
                       </div>
-                      
-                      {/* Pulse Effect */}
-                      {isActive && (
-                        <div className="absolute inset-0 rounded-full bg-accent/20 animate-ping"></div>
-                      )}
                     </div>
                   </div>
 
                   {/* Step Content */}
-                  <div className={`text-center transition-all duration-300 ${
-                    isActive ? "scale-105" : ""
+                  <div className={`text-center transition-transform duration-200 ${
+                    isActive ? "scale-102" : ""
                   }`}>
-                    <h3 className={`text-xl font-bold mb-3 transition-colors duration-300 ${
+                    <h3 className={`text-xl font-bold mb-3 transition-colors duration-200 ${
                       isActive ? "text-accent" : ""
                     }`}>
                       {step.title}
@@ -154,14 +149,13 @@ export function Workflow() {
                     </p>
 
                     {/* Details List */}
-                    <div className={`mt-4 space-y-2 transition-all duration-500 ${
+                    <div className={`mt-4 space-y-2 transition-all duration-300 ${
                       isActive ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"
                     }`}>
                       {step.details.map((detail, idx) => (
                         <div
                           key={idx}
                           className="flex items-center gap-2 text-sm text-foreground/80"
-                          style={{ animationDelay: `${idx * 50}ms` }}
                         >
                           <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
                           <span>{detail}</span>
@@ -173,8 +167,8 @@ export function Workflow() {
                   {/* Arrow Connector */}
                   {index < steps.length - 1 && (
                     <div className="absolute top-24 -right-4 transform -translate-y-1/2 z-10">
-                      <ArrowRight className={`w-8 h-8 text-accent transition-all duration-500 ${
-                        isActive ? "scale-125 translate-x-2" : ""
+                      <ArrowRight className={`w-8 h-8 text-accent transition-transform duration-200 ${
+                        isActive ? "scale-110 translate-x-1" : ""
                       }`} />
                     </div>
                   )}
@@ -204,11 +198,11 @@ export function Workflow() {
                 >
                   {/* Timeline Node */}
                   <div className="relative flex-shrink-0">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} border-4 border-background flex items-center justify-center transition-all duration-500 ${
-                      isActive ? "scale-125 shadow-2xl shadow-accent/30" : "scale-100"
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${
+                      isActive ? "scale-110" : "scale-100"
                     }`}>
-                      <Icon className={`w-8 h-8 text-accent transition-all duration-500 ${
-                        isActive ? "rotate-12" : ""
+                      <Icon className={`w-8 h-8 text-accent transition-transform duration-200 ${
+                        isActive ? "rotate-6" : ""
                       }`} />
                     </div>
                     
@@ -220,17 +214,17 @@ export function Workflow() {
 
                   {/* Content Card */}
                   <div className="flex-1 pb-8">
-                    <div className={`bg-card rounded-2xl p-6 border-2 border-border transition-all duration-500 ${
-                      isActive ? "scale-105 border-accent/50 shadow-2xl shadow-accent/20" : ""
+                    <div className={`bg-card rounded-2xl p-6 border-2 border-border transition-all duration-300 will-change-transform ${
+                      isActive ? "scale-[1.02] border-accent/50 shadow-xl shadow-accent/10" : ""
                     }`}>
                       {/* Gradient Background */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.hoverGradient} transition-all duration-500 ${
+                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.gradient} transition-opacity duration-300 ${
                         isActive ? "opacity-100" : "opacity-0"
                       }`}></div>
 
                       {/* Content */}
                       <div className="relative z-10">
-                        <h3 className={`text-xl md:text-2xl font-bold mb-3 transition-colors duration-300 ${
+                        <h3 className={`text-xl md:text-2xl font-bold mb-3 transition-colors duration-200 ${
                           isActive ? "text-accent" : ""
                         }`}>
                           {step.title}
@@ -240,27 +234,19 @@ export function Workflow() {
                         </p>
 
                         {/* Details List */}
-                        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 transition-all duration-500 ${
+                        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 transition-all duration-300 ${
                           isActive ? "opacity-100 max-h-96 mt-4" : "opacity-0 max-h-0 overflow-hidden"
                         }`}>
                           {step.details.map((detail, idx) => (
                             <div
                               key={idx}
                               className="flex items-center gap-2 text-sm text-foreground/80"
-                              style={{ animationDelay: `${idx * 50}ms` }}
                             >
                               <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
                               <span>{detail}</span>
                             </div>
                           ))}
                         </div>
-                      </div>
-
-                      {/* Shine Effect */}
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                        <div className={`absolute inset-0 transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 ${
-                          isActive ? "translate-x-[100%]" : "translate-x-[-100%]"
-                        }`}></div>
                       </div>
                     </div>
                   </div>
@@ -275,14 +261,14 @@ export function Workflow() {
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <a
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
+              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200"
             >
               Start Your Journey
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
               href="/services"
-              className="inline-flex items-center gap-2 border-2 border-accent text-accent px-8 py-4 rounded-xl font-semibold hover:bg-accent/10 transition-all duration-300"
+              className="inline-flex items-center gap-2 border-2 border-accent text-accent px-8 py-4 rounded-xl font-semibold hover:bg-accent/10 transition-colors duration-200"
             >
               View All Services
             </a>

@@ -39,18 +39,18 @@ export function FeaturesSection() {
 
   return (
     <section className="relative py-20 md:py-32 bg-background overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Animated Background Elements - Removed animate-pulse for performance */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Why Choose GyaanRich ?
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto animate-fade-in-up">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Factors that set us apart in transforming education
           </p>
         </div>
@@ -78,8 +78,8 @@ export function FeaturesSection() {
                 >
                   {/* Timeline Node */}
                   <div className="absolute left-8 lg:left-1/2 transform lg:-translate-x-1/2 z-20">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} border-4 border-background flex items-center justify-center transition-all duration-500 ${isHovered ? "scale-125 shadow-2xl shadow-accent/50" : "scale-100"}`}>
-                      <Icon className={`w-8 h-8 text-accent transition-all duration-500 ${isHovered ? "rotate-12 scale-110" : ""}`} />
+                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${isHovered ? "scale-110" : "scale-100"}`}>
+                      <Icon className={`w-8 h-8 text-accent transition-transform duration-300 ${isHovered ? "rotate-6" : ""}`} />
                     </div>
                     
                     {/* Step Number */}
@@ -91,33 +91,25 @@ export function FeaturesSection() {
                   {/* Content Card */}
                   <div className={`flex-1 ${isEven ? "lg:pr-12 lg:text-right" : "lg:pl-12 lg:text-left"} pl-24 lg:pl-0 text-left`}>
                     <div
-                      className={`group relative bg-card rounded-2xl p-8 border-2 border-border hover:border-accent/50 transition-all duration-500 cursor-pointer ${isHovered ? "scale-105 shadow-2xl shadow-accent/20" : "scale-100"}`}
-                      style={{
-                        animationDelay: `${index * 150}ms`,
-                      }}
+                      className={`group relative bg-card rounded-2xl p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform ${isHovered ? "scale-[1.02] shadow-xl shadow-accent/10 border-accent/50" : "scale-100"}`}
                     >
                       {/* Gradient Background */}
                       <div
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${isHovered ? feature.hoverGradient : feature.gradient} transition-all duration-500 opacity-0 ${isHovered ? "opacity-100" : ""}`}
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
                       ></div>
 
                       {/* Content */}
                       <div className="relative z-10">
-                        <h3 className={`text-2xl font-bold mb-3 transition-all duration-300 ${isHovered ? "text-accent scale-105" : ""}`}>
+                        <h3 className={`text-2xl font-bold mb-3 transition-colors duration-200 ${isHovered ? "text-accent" : ""}`}>
                           {feature.title}
                         </h3>
-                        <p className={`text-foreground/70 text-lg transition-all duration-300 ${isHovered ? "text-foreground/90" : ""}`}>
+                        <p className={`text-foreground/70 text-lg transition-colors duration-200 ${isHovered ? "text-foreground/90" : ""}`}>
                           {feature.description}
                         </p>
                       </div>
 
-                      {/* Shine Effect */}
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                        <div className={`absolute inset-0 transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 ${isHovered ? "translate-x-[100%]" : "translate-x-[-100%]"}`}></div>
-                      </div>
-
-                      {/* Corner Accent */}
-                      <div className={`absolute top-0 ${isEven ? "lg:right-0" : "lg:left-0"} right-0 w-20 h-20 bg-gradient-to-br ${feature.gradient} opacity-20 transition-all duration-500 ${isHovered ? "scale-150 opacity-30" : ""}`} style={{ clipPath: isEven ? "polygon(100% 0, 0 0, 100% 100%)" : "polygon(0 0, 100% 0, 0 100%)" }}></div>
+                      {/* Simplified Corner Accent - No animation */}
+                      <div className={`absolute top-0 ${isEven ? "lg:right-0" : "lg:left-0"} right-0 w-20 h-20 bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ clipPath: isEven ? "polygon(100% 0, 0 0, 100% 100%)" : "polygon(0 0, 100% 0, 0 100%)" }}></div>
                     </div>
                   </div>
 
@@ -130,7 +122,7 @@ export function FeaturesSection() {
 
           {/* End Cap */}
           <div className="mt-12 flex justify-center">
-            <div className="w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/50 animate-pulse"></div>
+            <div className="w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/50"></div>
           </div>
         </div>
       </div>

@@ -111,27 +111,6 @@ export default function AboutPage() {
               </ScrollStackItem>
             </ScrollStack>
           </div>
-
-          <div className="bg-gradient-to-br from-secondary to-secondary/90 text-secondary-foreground rounded-2xl p-12 md:p-16 mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Why Choose Gyaan Rich?</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                "Expert team with years of experience",
-                "Personalized solutions for each client",
-                "Proven track record of success",
-                "Cutting-edge technology and tools",
-                "24/7 customer support",
-                "Affordable and flexible pricing",
-              ].map((reason, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-accent-foreground text-sm font-bold">✓</span>
-                  </div>
-                  <span className="text-lg">{reason}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
