@@ -1,21 +1,23 @@
 import Link from "next/link"
-import Prism from "./Prism"
+import ColorBends from "./ColorBends"
+
 
 export function HeroSection() {
   return (
     <section className="relative bg-black text-secondary-foreground py-20 md:py-32 overflow-hidden">
-      {/* Prism Background */}
+      {/* ColorBends Background */}
       <div className="absolute inset-0 w-full h-full">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={5.5}
-          scale={3.6}
-          hueShift={0}
-          colorFrequency={1}
-          noise={0}
-          glow={1}
+        <ColorBends
+          colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
+          rotation={0}
+          speed={0.2}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={1}
+          parallax={0.5}
+          noise={0.1}
+          transparent
         />
       </div>
       
@@ -27,7 +29,7 @@ export function HeroSection() {
         <div className="flex items-center justify-center min-h-[60vh]">
           {/* Content */}
           <div className="space-y-6 text-center max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance text-red-500 leading-tight">
               Empower Your <span className="text-accent">Education</span> Journey
             </h1>
             <p className="text-lg md:text-xl text-secondary-foreground/80 text-balance">
