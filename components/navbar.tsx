@@ -23,16 +23,16 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="bg-green-600 p-2 rounded-lg">
+            <div className="bg-green-400 p-1  m-2 rounded-lg border border-gray-200">
               <Image 
-                src="/1000274331.png" 
-                alt="ज्ञानRich Logo" 
+                src="/logo_gyanrich_withbg.png" 
+                alt="GyanRich Logo" 
                 width={40} 
                 height={40}
                 className="object-contain"
               />
             </div>
-            <span>ज्ञानRich</span>
+            <span>GyanRich</span>
           </Link>
 
           {/* Desktop Navigation */}

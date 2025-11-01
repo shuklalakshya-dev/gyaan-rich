@@ -30,8 +30,8 @@ export function HeroSection() {
         <div className="flex items-center justify-center min-h-[60vh]">
           {/* Content */}
           <div className="space-y-6 text-center max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance text-red-500 leading-tight">
-              Empower Your <span className="text-accent">Education</span> Journey
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance text-yellow-500 leading-tight">
+              Empower Your <span className="text-yellow-500">Education</span> Journey
             </h1>
             <p className="text-lg md:text-xl text-secondary-foreground/80 text-balance">
               Gyaan Rich provides comprehensive counselling, engaging lectures, and custom school websites to transform
@@ -40,7 +40,7 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-opacity text-center"
+                className="bg-yellow-300 text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-opacity text-center"
               >
                 Start Your Journey
               </Link>

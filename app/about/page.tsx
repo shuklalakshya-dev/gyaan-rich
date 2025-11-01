@@ -62,7 +62,7 @@ export default function AboutPage() {
 
             <div className="flex items-center justify-center">
               <Image
-                src="/1000274331.png"
+                src="/logo_gyanrich_withbg.png"
                 alt="Gyaan Rich - We will light the lamp of knowledge"
                 width={400}
                 height={400}
