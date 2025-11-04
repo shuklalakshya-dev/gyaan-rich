@@ -6,7 +6,6 @@ import { Footer } from "@/components/footer"
 import { Target, Heart, Zap } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
-import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack"
 
 export default function AboutPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -60,56 +59,75 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-end pl-8">
               <Image
                 src="/logo_gyanrich_withbg.png"
                 alt="Gyaan Rich - We will light the lamp of knowledge"
-                width={400}
-                height={400}
-                className="object-contain w-full h-auto"
+                width={420}
+                height={520}
+                className="object-contain w-full h-auto max-w-[320px]"
                 priority
               />
             </div>
           </div>
 
-          <div className="h-screen mb-20">
-            <ScrollStack className="h-full">
-              <ScrollStackItem itemClassName="bg-red-600 border-2 border-red-700">
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-20 h-20 bg-red-700 rounded-2xl flex items-center justify-center mb-6 border-2 border-red-800">
-                    <Target className="w-10 h-10 text-white" />
-                  </div>
-                  <h2 className="text-4xl font-bold mb-6 text-white">Our Mission</h2>
-                  <p className="text-xl text-white/90 leading-relaxed max-w-2xl">
-                    To empower students and institutions through innovative educational solutions and expert guidance.
-                  </p>
-                </div>
-              </ScrollStackItem>
+          {/* Mission, Values, Vision Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            {cards.map((card, index) => {
+              const Icon = card.icon
+              const isHovered = hoveredCard === index
 
-              <ScrollStackItem itemClassName="bg-red-600 border-2 border-red-700">
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-20 h-20 bg-red-700 rounded-2xl flex items-center justify-center mb-6 border-2 border-red-800">
-                    <Heart className="w-10 h-10 text-white" />
-                  </div>
-                  <h2 className="text-4xl font-bold mb-6 text-white">Our Values</h2>
-                  <p className="text-xl text-white/90 leading-relaxed max-w-2xl">
-                    Excellence, integrity, innovation, and a commitment to transforming students through education.
-                  </p>
-                </div>
-              </ScrollStackItem>
+              return (
+                <div
+                  key={index}
+                  className="group relative"
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div
+                    className={`relative bg-card rounded-2xl p-8 border-2 border-border transition-all duration-300 h-full flex flex-col items-center text-center ${
+                      isHovered ? "scale-[1.02] shadow-2xl shadow-yellow-400/20 border-yellow-400/50 bg-yellow-400" : ""
+                    }`}
+                  >
+                    {/* Gradient Background */}
+                    <div
+                      className={`absolute inset-0 rounded-2xl bg-yellow-400 transition-opacity duration-300 ${
+                        isHovered ? "opacity-100" : "opacity-0"
+                      }`}
+                    ></div>
 
-              <ScrollStackItem itemClassName="bg-red-600 border-2 border-red-700">
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-20 h-20 bg-red-700 rounded-2xl flex items-center justify-center mb-6 border-2 border-red-800">
-                    <Zap className="w-10 h-10 text-white" />
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div
+                        className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
+                          isHovered
+                            ? "bg-accent scale-110 rotate-6"
+                            : "bg-gradient-to-br " + card.gradient + " border-2 border-border"
+                        }`}
+                      >
+                        <Icon className={`w-10 h-10 transition-colors duration-300 ${isHovered ? "text-white" : "text-accent"}`} />
+                      </div>
+
+                      <h2 className={`text-2xl md:text-3xl font-bold mb-4 transition-colors duration-300 ${isHovered ? "text-accent" : ""}`}>
+                        {card.title}
+                      </h2>
+
+                      <p className={`text-lg leading-relaxed transition-colors duration-300 ${isHovered ? "text-foreground" : "text-foreground/70"}`}>
+                        {card.description}
+                      </p>
+                    </div>
+
+                    {/* Decorative Corner */}
+                    <div
+                      className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${card.gradient} opacity-20 transition-opacity duration-300 ${
+                        isHovered ? "opacity-40" : ""
+                      }`}
+                      style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
+                    ></div>
                   </div>
-                  <h2 className="text-4xl font-bold mb-6 text-white">Our Vision</h2>
-                  <p className="text-xl text-white/90 leading-relaxed max-w-2xl">
-                    To be the leading educational platform that bridges the gap between aspirations and achievements.
-                  </p>
                 </div>
-              </ScrollStackItem>
-            </ScrollStack>
+              )
+            })}
           </div>
         </div>
       </section>

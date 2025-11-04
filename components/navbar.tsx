@@ -23,7 +23,7 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="bg-green-400 p-1  m-2 rounded-lg border border-gray-200">
+            <div className="bg-white p-1  m-2 rounded-lg border border-gray-200">
               <Image 
                 src="/logo_gyanrich_withbg.png" 
                 alt="GyanRich Logo" 
@@ -38,7 +38,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-accent transition-colors duration-200">
+              <Link key={link.href} href={link.href} className="hover:text-yellow-400 transition-colors duration-200">
                 {link.label}
               </Link>
             ))}
@@ -48,7 +48,7 @@ export function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="bg-accent text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              className="bg-yellow-400 text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Get Started
             </Link>

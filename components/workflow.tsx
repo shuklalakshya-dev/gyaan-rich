@@ -104,9 +104,6 @@ export function Workflow() {
 
         {/* Desktop Timeline View */}
         <div className="hidden lg:block relative">
-          {/* Progress Line */}
-          <div className="absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-accent/20 via-accent to-accent/20"></div>
-          
           <div className="grid grid-cols-5 gap-8">
             {steps.map((step, index) => {
               const Icon = step.icon
@@ -163,15 +160,6 @@ export function Workflow() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Arrow Connector */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute top-24 -right-4 transform -translate-y-1/2 z-10">
-                      <ArrowRight className={`w-8 h-8 text-accent transition-transform duration-200 ${
-                        isActive ? "scale-110 translate-x-1" : ""
-                      }`} />
-                    </div>
-                  )}
                 </div>
               )
             })}
@@ -180,9 +168,6 @@ export function Workflow() {
 
         {/* Mobile/Tablet Timeline View */}
         <div className="lg:hidden relative">
-          {/* Vertical Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent/50 via-accent to-accent/50"></div>
-
           <div className="space-y-8">
             {steps.map((step, index) => {
               const Icon = step.icon
@@ -261,14 +246,14 @@ export function Workflow() {
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <a
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200"
+              className="group inline-flex items-center gap-2 bg-yellow-400 text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200"
             >
               Start Your Journey
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
               href="/services"
-              className="inline-flex items-center gap-2 border-2 border-accent text-accent px-8 py-4 rounded-xl font-semibold hover:bg-accent/10 transition-colors duration-200"
+              className="inline-flex items-center gap-2 border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-xl font-semibold hover:bg-yellow-400/10 transition-colors duration-200"
             >
               View All Services
             </a>

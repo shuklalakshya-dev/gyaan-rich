@@ -1,23 +1,23 @@
 import Link from "next/link"
-import ColorBends from "./ColorBends"
+import LightRays from "./LightRays"
 
 
 export function HeroSection() {
   return (
     <section className="relative bg-black text-secondary-foreground py-20 md:py-32 overflow-hidden">
-      {/* ColorBends Background */}
+      {/* LightRays Background */}
       <div className="absolute inset-0 w-full h-full">
-        <ColorBends
-          colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
-          rotation={0}
-          speed={0.2}
-          scale={1}
-          frequency={1}
-          warpStrength={1}
-          mouseInfluence={1}
-          parallax={0.5}
-          noise={0.1}
-          transparent
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00ffff"
+          raysSpeed={1.5}
+          lightSpread={1.8}
+          rayLength={3.2}
+          followMouse={true}
+          mouseInfluence={1.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays"
         />
       </div>
       
@@ -40,13 +40,13 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-yellow-300 text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-opacity text-center"
+                className="bg-yellow-400 text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-opacity text-center"
               >
                 Start Your Journey
               </Link>
               <Link
                 href="/services"
-                className="text-white border-2 border-accent px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors text-center"
+                className="text-white border-2 border-yellow-400 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center"
               >
                 Explore Services
               </Link>
