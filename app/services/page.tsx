@@ -9,21 +9,21 @@ import { useState } from "react"
 const services = [
   {
     id: 1,
-    title: "Educational Counselling",
+    title: "Expert Counselling Sessions",
     icon: Users,
     description: "Expert guidance for students and parents to navigate the complex educational landscape",
     features: [
-      "Career path planning",
-      "College selection assistance",
-      "Entrance exam preparation",
-      "Personalized mentoring",
-      "Skill development programs",
+      "Personalized Career Guidance based on interests, strengths & future goals",
+      "Certified & Experienced Counselors guiding students with proven methods",
+      "Emotional Wellness Support to reduce stress, anxiety & academic pressure",
+      "Mindset & Confidence Building Programs designed for students of all age groups",
+      "Goal-Oriented Roadmaps for academic, personal & competitive exam growth",
     ],
     benefits: [
       "One-on-one counselling sessions",
       "Comprehensive career assessments",
       "Access to industry experts",
-      "Flexible scheduling",
+      "Parent Counseling Support to help create a positive and supportive environment",
     ],
     gradient: "from-blue-500/20 to-cyan-500/20",
     hoverGradient: "from-blue-500/30 to-cyan-500/30",
@@ -31,14 +31,14 @@ const services = [
   },
   {
     id: 2,
-    title: "Interactive Lectures",
+    title: "Pre-Recorded Video Lectures",
     icon: Lightbulb,
     description: "Engaging educational content delivered by industry experts and experienced educators",
     features: [
-      "Live interactive sessions",
-      "Recorded lectures on demand",
-      "Subject matter experts",
-      "Q&A sessions",
+      "Recorded lecturesfor class 9 to 12 across various subjects",
+      "High Quality Recorded lectures on demand",
+      "Specific Subject matter experts",
+      "Q & A sessions",
       "Study materials included",
     ],
     benefits: [
@@ -49,7 +49,7 @@ const services = [
     ],
     gradient: "from-purple-500/20 to-pink-500/20",
     hoverGradient: "from-purple-500/30 to-pink-500/30",
-    stats: { value: "1000+", label: "Hours of Content" },
+    stats: { value: "300+", label: "Hours of Content" },
   },
   {
     id: 3,
@@ -58,9 +58,9 @@ const services = [
     description: "Professional, responsive websites tailored specifically for educational institutions",
     features: [
       "Responsive design",
-      "Student portal",
-      "Online admission system",
-      "Event management",
+      "One Year free hosting & maintenance",
+      "Online Presence with SEO optimization",
+      "School portfolio showcase",
       "News and updates section",
     ],
     benefits: [
@@ -71,11 +71,11 @@ const services = [
     ],
     gradient: "from-green-500/20 to-emerald-500/20",
     hoverGradient: "from-green-500/30 to-emerald-500/30",
-    stats: { value: "50+", label: "Websites Delivered" },
+    stats: { value: "10+", label: "Websites Delivered" },
   },
   {
     id: 4,
-    title: "Consulting Services",
+    title: "Extra Consulting Services",
     icon: Target,
     description: "Strategic guidance and implementation support for educational institutions",
     features: [
@@ -93,7 +93,7 @@ const services = [
     ],
     gradient: "from-orange-500/20 to-yellow-500/20",
     hoverGradient: "from-orange-500/30 to-yellow-500/30",
-    stats: { value: "100+", label: "Institutions Served" },
+    stats: { value: "10+", label: "Institutions Served" },
   },
 ]
 
@@ -279,14 +279,14 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
+              className="inline-flex items-center bg-yellow-400 gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
             >
               Contact Us Today
               <Zap className="w-5 h-5" />
             </a>
             <a
               href="/pricing"
-              className="inline-flex items-center gap-2 border-2 border-accent text-accent px-8 py-4 rounded-xl font-semibold hover:bg-accent/10 transition-all duration-300"
+              className="inline-flex items-center gap-2 border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-xl font-semibold hover:bg-yellow-400/10 transition-all duration-300"
             >
               View Pricing
             </a>

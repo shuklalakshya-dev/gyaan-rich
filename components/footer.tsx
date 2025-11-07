@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Mail, Phone, MapPin } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -9,8 +10,14 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 font-bold text-lg mb-4">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-bold">GR</span>
+              <div className="bg-white p-1 rounded-lg border border-gray-200">
+                <Image 
+                  src="/logo_gyanrich_withbg.png" 
+                  alt="GyanRich Logo" 
+                  width={32} 
+                  height={32}
+                  className="object-contain"
+                />
               </div>
               <span>Gyaan Rich</span>
             </div>
@@ -78,12 +85,12 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-secondary-foreground/70">© 2025 Gyaan Rich. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-accent transition-colors">
+              {/* <Link href="#" className="hover:text-accent transition-colors">
                 Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
+              </Link> */}
+              {/* <Link href="#" className="hover:text-accent transition-colors">
                 Terms of Service
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -5,46 +5,44 @@ import { Check } from "lucide-react"
 
 const pricingPlans = [
   {
-    name: "Starter",
-    price: "₹9,999",
-    period: "/month",
-    description: "Perfect for individual students",
+    name: "Basic",
+    price: "₹17,999",
+    period: "/ 3 months",
+    description: "Perfect for small schools getting started",
     features: [
-      "Access to recorded lectures",
-      "Monthly counselling session",
-      "Study materials",
-      "Email support",
-      "Community access",
+      "Each Month One Career Counselling Session. ",
+      "One Workshop On Career Guidance.",
+      "One I.Q (aptitude test) For Enhancing The Students Knowledge.",
+      "One Workshop On A.I &  Coding.",
+      
     ],
     highlighted: false,
   },
   {
-    name: "Professional",
-    price: "₹24,999",
-    period: "/month",
-    description: "Ideal for serious learners",
+    name: "Advanced",
+    price: "₹34,999",
+    period: "/3 months",
+    description: "Ideal for schools aiming for growth",
     features: [
-      "All Starter features",
-      "Weekly live sessions",
-      "Personalized mentoring",
-      "Priority support",
-      "Career guidance",
-      "Mock tests",
+      "All Basic Package Features. ",
+      "One Extra  I.Q (Aptitude test). ",
+      "One Any Function Recording Of Your School. ",
+      "Portfolio Building For Your School.",
+    
     ],
     highlighted: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
-    description: "For educational institutions",
+    name: "Premium",
+    price: "₹59,999",
+    period: "/3 months",
+    description: "Ideal for those Schools who want to grow fast",
     features: [
-      "Custom school website",
-      "Student portal",
-      "Online admission system",
-      "Staff training",
-      "Dedicated account manager",
-      "Analytics dashboard",
+      "All Advance Features.",
+      "Your Own Campus Teachers Pre- Recording Lectures For Class 9-12 (Specific Subject Only)",
+      "Custom Website Building To Increase Trust Value And Brand Value.",
+      "Priority Support And Academic Growth.",
+   
     ],
     highlighted: false,
   },
@@ -55,8 +53,8 @@ export default function PricingPage() {
     <main className="min-h-screen">
       <Navbar />
       <PageHeader
-        title="Simple, Transparent Pricing"
-        description="Choose the perfect plan for your educational needs"
+        title="Simple & Transparent Pricing"
+        description="Choose the perfect plan for your institute needs"
       />
 
       <section className="py-20 md:py-32 bg-background">
