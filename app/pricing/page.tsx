@@ -65,12 +65,12 @@ export default function PricingPage() {
                 key={index}
                 className={`rounded-2xl p-8 border-2 transition-all duration-300 ${
                   plan.highlighted
-                    ? "border-accent bg-accent/5 shadow-lg scale-105"
-                    : "border-border bg-card hover:border-accent"
+                    ? "border-yellow-400 bg-yellow-400/5 shadow-lg scale-105"
+                    : "border-border bg-card hover:border-yellow-400"
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="bg-accent text-accent-foreground px-4 py-1 rounded-full inline-block text-sm font-semibold mb-4">
+                  <div className="bg-yellow-400 text-black px-4 py-1 rounded-full inline-block text-sm font-semibold mb-4">
                     Most Popular
                   </div>
                 )}
@@ -83,8 +83,8 @@ export default function PricingPage() {
                 <button
                   className={`w-full py-3 rounded-lg font-semibold mb-8 transition-colors ${
                     plan.highlighted
-                      ? "bg-accent text-accent-foreground hover:opacity-90"
-                      : "border-2 border-accent text-accent hover:bg-accent/10"
+                      ? "bg-yellow-400 text-black hover:opacity-90"
+                      : "border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/10"
                   }`}
                 >
                   Get Started
@@ -92,7 +92,7 @@ export default function PricingPage() {
                 <ul className="space-y-4">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                      <Check className="w-5 h-5 text-yellow-400 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -108,7 +108,7 @@ export default function PricingPage() {
             </p>
             <a
               href="/contact"
-              className="inline-block bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              className="inline-block bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Contact Sales
             </a>

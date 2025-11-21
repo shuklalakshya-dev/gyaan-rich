@@ -1,9 +1,18 @@
+"use client"
+
+import { useEffect } from "react"
 import { Navbar } from "@/components/navbar"
 import { PageHeader } from "@/components/page-header"
 import { Footer } from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
 
 export default function ContactPage() {
+  useEffect(() => {
+    // Replace this URL with your actual Google Form link
+    const googleFormUrl = "https://forms.gle/JT9tU6EWJTR3kL3K7"
+    window.location.href = googleFormUrl
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -14,7 +23,9 @@ export default function ContactPage() {
 
       <section className="py-20 md:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContactForm />
+          <div className="text-center">
+            <p className="text-lg">Redirecting to contact form...</p>
+          </div>
         </div>
       </section>
 

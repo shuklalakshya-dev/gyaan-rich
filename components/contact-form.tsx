@@ -61,17 +61,12 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Mail className="w-6 h-6 text-accent" />
-            </div>
-            <div>
-              <h4 className="font-semibold mb-1">Email</h4>
-              <a href="mailto:info@gyaanrich.com" className="text-foreground/70 hover:text-accent transition-colors">
-                info@gyaanrich.com
+                      <div className="flex items-center gap-3">
+              <Mail className="text-accent" size={24} />
+              <a href="mailto:gyanrich@outlook.in" className="text-foreground/70 hover:text-accent transition-colors">
+                gyanrich@outlook.in
               </a>
             </div>
-          </div>
 
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">

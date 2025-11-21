@@ -91,19 +91,19 @@ export function FeaturesSection() {
                   {/* Content Card */}
                   <div className={`flex-1 ${isEven ? "lg:pr-12 lg:text-right" : "lg:pl-12 lg:text-left"} pl-24 lg:pl-0 text-left`}>
                     <div
-                      className={`group relative bg-card rounded-2xl p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform ${isHovered ? "scale-[1.02] shadow-xl shadow-accent/10 border-accent/50" : "scale-100"}`}
+                      className={`group relative bg-card rounded-2xl p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform ${isHovered ? "scale-[1.02] shadow-xl shadow-yellow-400/20 border-yellow-400/50" : "scale-100"}`}
                     >
                       {/* Gradient Background */}
                       <div
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
+                        className={`absolute inset-0 rounded-2xl bg-yellow-400 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
                       ></div>
 
                       {/* Content */}
                       <div className="relative z-10">
-                        <h3 className={`text-2xl font-bold mb-3 transition-colors duration-200 ${isHovered ? "text-accent" : ""}`}>
+                        <h3 className={`text-2xl font-bold mb-3 transition-colors duration-200 ${isHovered ? "text-black" : ""}`}>
                           {feature.title}
                         </h3>
-                        <p className={`text-foreground/70 text-lg transition-colors duration-200 ${isHovered ? "text-foreground/90" : ""}`}>
+                        <p className={`text-foreground/70 text-lg transition-colors duration-200 ${isHovered ? "text-black/80" : ""}`}>
                           {feature.description}
                         </p>
                       </div>

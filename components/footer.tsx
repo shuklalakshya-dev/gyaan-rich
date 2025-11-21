@@ -62,19 +62,20 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail size={18} className="text-accent" />
-                <a href="mailto:info@gyaanrich.com" className="hover:text-accent transition-colors">
-                  info@gyaanrich.com
+                <Mail size={18} className="text-yellow-400" />
+                <a href="mailto:gyanrich@outlook.in" className="hover:text-accent transition-colors">
+                  gyanrich@outlook.in
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone size={18} className="text-accent" />
+                <Phone size={18} className="text-yellow-400" />
                 <a href="tel:+919876543210" className="hover:text-accent transition-colors">
-                  +91 98765 43210
+                  +91 9453805716
+                
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin size={18} className="text-accent mt-1" />
+                <MapPin size={18} className="text-yellow-400 mt-1" />
                 <span>India</span>
               </li>
             </ul>
