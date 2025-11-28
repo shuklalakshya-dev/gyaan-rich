@@ -32,10 +32,10 @@ export function Footer() {
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About" },
                 { href: "/services", label: "Services" },
-                { href: "/blog", label: "Blog" },
+                // { href: "/blog", label: "Blog" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-accent transition-colors">
+                  <Link href={link.href} className="hover:text-yellow-400 transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -47,9 +47,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              {["Counselling", "Lectures", "School Websites", "Consulting"].map((service) => (
+              {["Counselling", "Webinar", "", "Consulting"].map((service) => (
                 <li key={service}>
-                  <Link href="/services" className="hover:text-accent transition-colors">
+                  <Link href="/services" className="hover:text-yellow-400 transition-colors">
                     {service}
                   </Link>
                 </li>
@@ -63,13 +63,13 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <Mail size={18} className="text-yellow-400" />
-                <a href="mailto:gyanrich@outlook.in" className="hover:text-accent transition-colors">
+                <a href="mailto:gyanrich@outlook.in" className="hover:text-yellow-400 transition-colors">
                   gyanrich@outlook.in
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={18} className="text-yellow-400" />
-                <a href="tel:+919876543210" className="hover:text-accent transition-colors">
+                <a href="tel:+919876543210" className="hover:text-yellow-400 transition-colors">
                   +91 9453805716
                 
                 </a>

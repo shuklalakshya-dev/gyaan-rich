@@ -57,12 +57,6 @@ export function FeaturesSection() {
 
         {/* Roadmap Container */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Vertical Line - Desktop */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent/50 via-accent to-accent/50 transform -translate-x-1/2"></div>
-          
-          {/* Vertical Line - Mobile */}
-          <div className="lg:hidden absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/50 via-accent to-accent/50"></div>
-
           <div className="space-y-12 lg:space-y-20">
             {features.map((feature, index) => {
               const Icon = feature.icon
@@ -121,9 +115,9 @@ export function FeaturesSection() {
           </div>
 
           {/* End Cap */}
-          <div className="mt-12 flex justify-center">
+          {/* <div className="mt-12 flex justify-center">
             <div className="w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/50"></div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

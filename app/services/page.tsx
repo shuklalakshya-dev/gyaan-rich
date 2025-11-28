@@ -114,7 +114,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {services.map((service) => (
               <div key={service.id} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">{service.stats.value}</div>
+                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{service.stats.value}</div>
                 <div className="text-sm text-foreground/70">{service.stats.label}</div>
               </div>
             ))}
@@ -269,8 +269,8 @@ export default function ServicesPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-2xl mb-6 animate-bounce">
-            <BookOpen className="w-8 h-8 text-accent" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-400/20 rounded-2xl mb-6 animate-bounce">
+            <BookOpen className="w-8 h-8 text-yellow-400" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Institution?</h2>
           <p className="text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed">
