@@ -41,7 +41,7 @@ export default function AboutPage() {
     <main className="min-h-screen">
       <Navbar />
       <PageHeader
-        title="About Gyaan Rich"
+        title="About Gyan Rich"
         description="Pioneering educational excellence through innovation, expertise, and dedication"
       />
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story </h2>
               <p className="text-lg text-foreground/70 mb-4">
-                At Gyaan Rich, our journey began with a simple vision — to make learning meaningful and personal for every student. We realized that schools often focus on academics but lack the emotional and digital support that truly helps students grow. That’s where we stepped in. Gyaan Rich bridges this gap by providing expert counselling sessions, interactive video lectures, and customized digital platforms for schools. Our mission is to empower institutions to go beyond textbooks — helping students discover their potential, schools scale their impact, and learning become an inspiring journey for all.
+                At Gyan Rich, our journey began with a simple vision — to make learning meaningful and personal for every student. We realized that schools often focus on academics but lack the emotional and digital support that truly helps students grow. That's where we stepped in. Gyan Rich bridges this gap by providing expert counselling sessions, interactive video lectures, and customized digital platforms for schools. Our mission is to empower institutions to go beyond textbooks — helping students discover their potential, schools scale their impact, and learning become an inspiring journey for all.
               </p>
               <p className="text-lg text-foreground/70">
                 Over the years, we have helped thousands of students achieve their dreams and supported numerous
@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="flex items-center justify-end pl-8">
               <Image
                 src="/logo_gyanrich_withbg.png"
-                alt="Gyaan Rich - We will light the lamp of knowledge"
+                alt="Gyan Rich - We will light the lamp of knowledge"
                 width={420}
                 height={520}
                 className="object-contain w-full h-auto max-w-[320px]"

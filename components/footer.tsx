@@ -19,7 +19,7 @@ export function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span>Gyaan Rich</span>
+              <span>Gyan Rich</span>
             </div>
             <p className="text-secondary-foreground/70">Transforming education through innovation and expertise.</p>
           </div>
@@ -84,7 +84,7 @@ export function Footer() {
 
         <div className="border-t border-secondary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-secondary-foreground/70">© 2025 Gyaan Rich. All rights reserved.</p>
+            <p className="text-secondary-foreground/70">© 2025 Gyan Rich. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               {/* <Link href="#" className="hover:text-accent transition-colors">
                 Privacy Policy

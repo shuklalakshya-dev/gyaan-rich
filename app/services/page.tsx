@@ -274,7 +274,7 @@ export default function ServicesPage() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Institution?</h2>
           <p className="text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Get in touch with our team to discuss how Gyaan Rich can help you achieve your educational goals and create lasting impact.
+            Get in touch with our team to discuss how Gyan Rich can help you achieve your educational goals and create lasting impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a

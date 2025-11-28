@@ -34,7 +34,7 @@ export function HeroSection() {
               Empower Your <span className="text-yellow-500">Education</span> Journey
             </h1>
             <p className="text-lg md:text-xl text-secondary-foreground/80 text-balance">
-              Gyaan Rich provides comprehensive counselling, engaging lectures, and custom school websites to transform
+              Gyan Rich provides comprehensive counselling, engaging lectures, and custom school websites to transform
               educational experiences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
