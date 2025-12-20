@@ -245,7 +245,9 @@ export function Workflow() {
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <a
-              href="/contact"
+              href="https://forms.office.com/r/EvDTiBr8fE"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 bg-yellow-400 text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200"
             >
               Start Your Journey

@@ -107,7 +107,9 @@ export default function PricingPage() {
               Contact our sales team for custom quotes and special offers for institutions.
             </p>
             <a
-              href="/contact"
+              href="https://forms.office.com/r/EvDTiBr8fE"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Contact Sales

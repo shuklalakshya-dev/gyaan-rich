@@ -47,12 +47,14 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link
-              href="/contact"
+            <a
+              href="https://forms.office.com/r/EvDTiBr8fE"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-yellow-400 text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Get Started
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,13 +76,15 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
+            <a
+              href="https://forms.office.com/r/EvDTiBr8fE"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block px-4 py-2 bg-accent text-accent-foreground rounded font-semibold text-center"
               onClick={() => setIsOpen(false)}
             >
               Get Started
-            </Link>
+            </a>
           </div>
         )}
       </div>

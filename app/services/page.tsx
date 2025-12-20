@@ -233,7 +233,9 @@ export default function ServicesPage() {
                         {/* CTA Button */}
                         <div className="mt-8 pt-6 border-t border-border/50">
                           <a
-                            href="/contact"
+                            href="https://forms.office.com/r/EvDTiBr8fE"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                               isHovered
                                 ? "bg-accent text-accent-foreground shadow-lg shadow-accent/30 scale-105"
@@ -278,7 +280,9 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="/contact"
+              href="https://forms.office.com/r/EvDTiBr8fE"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center bg-yellow-400 gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
             >
               Contact Us Today

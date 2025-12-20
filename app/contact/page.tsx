@@ -9,7 +9,7 @@ import { ContactForm } from "@/components/contact-form"
 export default function ContactPage() {
   useEffect(() => {
     // Replace this URL with your actual Google Form link
-    const googleFormUrl = "https://forms.gle/JT9tU6EWJTR3kL3K7"
+    const googleFormUrl = "https://forms.office.com/r/EvDTiBr8fE"
     window.location.href = googleFormUrl
   }, [])
 

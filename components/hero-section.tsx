@@ -38,12 +38,14 @@ export function HeroSection() {
               educational experiences .
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <Link
-                href="/contact"
+              <a
+                href="https://forms.office.com/r/EvDTiBr8fE"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-yellow-400 text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-opacity text-center"
               >
                 Start Your Journey
-              </Link>
+              </a>
               <Link
                 href="/services"
                 className="text-white border-2 border-yellow-400 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center"
