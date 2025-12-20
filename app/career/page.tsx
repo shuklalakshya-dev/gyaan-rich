@@ -64,13 +64,14 @@ export default function CareerPage() {
     {
       id: 1,
       title: "Business Development Associate",
-      location: "Hybrid / Remote",
+      location: "Lucknow, India",
       type: "Full-time",
-      salary: "₹3.5L - ₹6L per annum",
+      salary: "₹1.2L - ₹2L per annum",
       description: "We are looking for a motivated Business Development Associate to help expand our reach in the education sector. You'll be responsible for identifying new business opportunities, building relationships with schools and educational institutions, and driving revenue growth.",
       requirements: [
         "Bachelor's degree in Business, Marketing, or related field",
         "0-3 years of experience in business development or sales",
+        "Freshers are welcome to apply",
         "Excellent communication and interpersonal skills",
         "Strong negotiation and presentation abilities",
         "Knowledge of the education sector is a plus",
