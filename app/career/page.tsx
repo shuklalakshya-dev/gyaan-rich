@@ -83,7 +83,7 @@ export default function CareerPage() {
         "Conduct product presentations and demonstrations",
         "Negotiate contracts and close deals",
         "Collaborate with internal teams to ensure client satisfaction",
-        "Meet and exceed sales targets"
+        "Meet and complete sales targets"
       ]
     }
   ]
