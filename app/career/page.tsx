@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Briefcase, MapPin, Clock, DollarSign } from "lucide-react"
+import { Briefcase, MapPin, Clock, IndianRupee } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 
@@ -66,7 +66,7 @@ export default function CareerPage() {
       title: "Business Development Associate",
       location: "Lucknow, India",
       type: "Full-time",
-      salary: "₹1.2L - ₹2L per annum",
+      salary: "1.2L - 2L per annum",
       description: "We are looking for a motivated Business Development Associate to help expand our reach in the education sector. You'll be responsible for identifying new business opportunities, building relationships with schools and educational institutions, and driving revenue growth.",
       requirements: [
         "Bachelor's degree in Business, Marketing, or related field",
@@ -124,7 +124,7 @@ export default function CareerPage() {
                         {job.type}
                       </span>
                       <span className="flex items-center gap-2">
-                        <DollarSign className="w-4 h-4" />
+                        <IndianRupee className="w-4 h-4" />
                         {job.salary}
                       </span>
                     </div>
