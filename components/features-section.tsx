@@ -7,7 +7,7 @@ const features = [
   {
     icon: BookOpen,
     title: "Expert Counselling",
-    description: "PPersonalized sessions by certified counsellors to help students build confidence, emotional strength, and career clarity. We guide students beyond academics — shaping their mindset, motivation, and mental well-being.",
+    description: "Personalized sessions by certified counsellors to help students build confidence, emotional strength, and career clarity. We guide students beyond academics — shaping their mindset, motivation, and mental well-being.",
     gradient: "from-blue-500/20 to-cyan-500/20",
     hoverGradient: "from-blue-500/30 to-cyan-500/30",
   },
@@ -38,86 +38,69 @@ export function FeaturesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative py-20 md:py-32 bg-background overflow-hidden">
+    <section className="relative py-12 md:py-20 lg:py-32 bg-background overflow-hidden">
       {/* Animated Background Elements - Removed animate-pulse for performance */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute top-10 md:top-20 left-5 md:left-10 w-48 md:w-72 h-48 md:h-72 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-10 md:bottom-20 right-5 md:right-10 w-64 md:w-96 h-64 md:h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+        <div className="text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Why Choose GyanRich ?
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-4">
             Factors that set us apart in transforming education
           </p>
         </div>
 
-        {/* Roadmap Container */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="space-y-12 lg:space-y-20">
+        {/* Grid Container */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon
               const isHovered = hoveredIndex === index
-              const isEven = index % 2 === 0
 
               return (
                 <div
                   key={index}
-                  className={`relative flex items-center ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} flex-row gap-8`}
+                  className="relative"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  {/* Timeline Node */}
-                  <div className="absolute left-8 lg:left-1/2 transform lg:-translate-x-1/2 z-20">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${feature.gradient} border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${isHovered ? "scale-110" : "scale-100"}`}>
-                      <Icon className={`w-8 h-8 text-accent transition-transform duration-300 ${isHovered ? "rotate-6" : ""}`} />
-                    </div>
-                    
-                    {/* Step Number */}
-                    <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center shadow-lg">
-                      {index + 1}
-                    </div>
-                  </div>
-
-                  {/* Content Card */}
-                  <div className={`flex-1 ${isEven ? "lg:pr-12 lg:text-right" : "lg:pl-12 lg:text-left"} pl-24 lg:pl-0 text-left`}>
+                  <div
+                    className={`group relative bg-card rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform h-full ${isHovered ? "scale-[1.02] shadow-xl shadow-yellow-400/20 border-yellow-400/50" : "scale-100"}`}
+                  >
+                    {/* Gradient Background */}
                     <div
-                      className={`group relative bg-card rounded-2xl p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform ${isHovered ? "scale-[1.02] shadow-xl shadow-yellow-400/20 border-yellow-400/50" : "scale-100"}`}
-                    >
-                      {/* Gradient Background */}
-                      <div
-                        className={`absolute inset-0 rounded-2xl bg-yellow-400 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
-                      ></div>
+                      className={`absolute inset-0 rounded-2xl bg-yellow-400 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
+                    ></div>
 
-                      {/* Content */}
-                      <div className="relative z-10">
-                        <h3 className={`text-2xl font-bold mb-3 transition-colors duration-200 ${isHovered ? "text-black" : ""}`}>
-                          {feature.title}
-                        </h3>
-                        <p className={`text-foreground/70 text-lg transition-colors duration-200 ${isHovered ? "text-black/80" : ""}`}>
-                          {feature.description}
-                        </p>
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className="mb-3 md:mb-4">
+                        <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${feature.gradient} flex items-center justify-center transition-transform duration-300 will-change-transform ${isHovered ? "scale-110" : "scale-100"}`}>
+                          <Icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent transition-transform duration-300 ${isHovered ? "rotate-6" : ""}`} />
+                        </div>
                       </div>
 
-                      {/* Simplified Corner Accent - No animation */}
-                      <div className={`absolute top-0 ${isEven ? "lg:right-0" : "lg:left-0"} right-0 w-20 h-20 bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ clipPath: isEven ? "polygon(100% 0, 0 0, 100% 100%)" : "polygon(0 0, 100% 0, 0 100%)" }}></div>
+                      <h3 className={`text-xl sm:text-2xl font-bold mb-2 md:mb-3 transition-colors duration-200 ${isHovered ? "text-black" : ""}`}>
+                        {feature.title}
+                      </h3>
+                      <p className={`text-foreground/70 text-sm sm:text-base md:text-lg transition-colors duration-200 ${isHovered ? "text-black/80" : ""}`}>
+                        {feature.description}
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Spacer for alternating layout on desktop */}
-                  <div className="hidden lg:block flex-1"></div>
+                    {/* Corner Accent */}
+                    <div className={`absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br ${feature.gradient} opacity-20`} style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}></div>
+                  </div>
                 </div>
               )
             })}
           </div>
-
-          {/* End Cap */}
-          {/* <div className="mt-12 flex justify-center">
-            <div className="w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/50"></div>
-          </div> */}
         </div>
       </div>
     </section>

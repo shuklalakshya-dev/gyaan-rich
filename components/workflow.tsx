@@ -80,24 +80,24 @@ export function Workflow() {
   const [activeStep, setActiveStep] = useState<number | null>(null)
 
   return (
-    <section className="relative py-20 md:py-32 bg-background overflow-hidden">
+    <section className="relative py-12 md:py-20 lg:py-32 bg-background overflow-hidden">
       {/* Background Elements - Static for better performance */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute top-10 md:top-20 right-5 md:right-10 w-64 md:w-96 h-64 md:h-96 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-10 md:bottom-20 left-5 md:left-10 w-64 md:w-96 h-64 md:h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent font-semibold text-sm mb-4">
-            <span className="w-2 h-2 bg-accent rounded-full"></span>
+        <div className="text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-accent/10 rounded-full text-accent font-semibold text-xs md:text-sm mb-3 md:mb-4">
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-accent rounded-full"></span>
             How It Works
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent px-4">
             Our Simple 5-Step Process
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-4">
             From initial consultation to ongoing support, we guide you every step of the way
           </p>
         </div>
@@ -168,7 +168,7 @@ export function Workflow() {
 
         {/* Mobile/Tablet Timeline View */}
         <div className="lg:hidden relative">
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {steps.map((step, index) => {
               const Icon = step.icon
               const isActive = activeStep === step.id
@@ -176,45 +176,45 @@ export function Workflow() {
               return (
                 <div
                   key={step.id}
-                  className="relative flex gap-6"
+                  className="relative flex gap-3 sm:gap-4 md:gap-6"
                   onMouseEnter={() => setActiveStep(step.id)}
                   onMouseLeave={() => setActiveStep(null)}
                   onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
                 >
                   {/* Timeline Node */}
                   <div className="relative flex-shrink-0">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} border-2 sm:border-3 md:border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${
                       isActive ? "scale-110" : "scale-100"
                     }`}>
-                      <Icon className={`w-8 h-8 text-accent transition-transform duration-200 ${
+                      <Icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent transition-transform duration-200 ${
                         isActive ? "rotate-6" : ""
                       }`} />
                     </div>
                     
                     {/* Step Number Badge */}
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-accent text-accent-foreground text-sm font-bold flex items-center justify-center shadow-lg">
+                    <div className="absolute -bottom-1.5 -right-1.5 sm:-bottom-2 sm:-right-2 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-bold flex items-center justify-center shadow-lg">
                       {index + 1}
                     </div>
                   </div>
 
                   {/* Content Card */}
-                  <div className="flex-1 pb-8">
-                    <div className={`bg-card rounded-2xl p-6 border-2 border-border transition-all duration-300 will-change-transform ${
+                  <div className="flex-1 pb-6 md:pb-8">
+                    <div className={`bg-card rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 border-2 border-border transition-all duration-300 will-change-transform ${
                       isActive ? "scale-[1.02] border-accent/50 shadow-xl shadow-accent/10" : ""
                     }`}>
                       {/* Gradient Background */}
-                      <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.gradient} transition-opacity duration-300 ${
+                      <div className={`absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br ${step.gradient} transition-opacity duration-300 ${
                         isActive ? "opacity-100" : "opacity-0"
                       }`}></div>
 
                       {/* Content */}
                       <div className="relative z-10">
-                        <h3 className={`text-xl md:text-2xl font-bold mb-3 transition-colors duration-200 ${
+                        <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3 transition-colors duration-200 ${
                           isActive ? "text-accent" : ""
                         }`}>
                           {step.title}
                         </h3>
-                        <p className="text-foreground/70 mb-4 leading-relaxed">
+                        <p className="text-sm sm:text-base text-foreground/70 mb-3 md:mb-4 leading-relaxed">
                           {step.description}
                         </p>
 
@@ -242,20 +242,20 @@ export function Workflow() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row gap-4">
+        <div className="mt-10 md:mt-16 text-center px-4">
+          <div className="inline-flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto">
             <a
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 bg-yellow-400 text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200"
+              className="group inline-flex items-center justify-center gap-2 bg-yellow-400 text-accent-foreground px-6 sm:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200 text-sm md:text-base"
             >
               Start Your Journey
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
               href="/services"
-              className="inline-flex items-center gap-2 border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-xl font-semibold hover:bg-yellow-400/10 transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 border-2 border-yellow-400 text-yellow-400 px-6 sm:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-yellow-400/10 transition-colors duration-200 text-sm md:text-base"
             >
               View All Services
             </a>
