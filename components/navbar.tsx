@@ -45,8 +45,14 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Buttons */}
+          <div className="hidden md:flex gap-3">
+            <a
+              href="#voice-agent"
+              className="border-2 border-yellow-400 text-white px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all"
+            >
+              Try Voice Agent
+            </a>
             <a
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
@@ -76,6 +82,13 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="#voice-agent"
+              className="block px-4 py-2 border-2 border-yellow-400 text-white rounded font-semibold text-center hover:bg-yellow-400 hover:text-black transition-all"
+              onClick={() => setIsOpen(false)}
+            >
+              Try Voice Agent
+            </a>
             <a
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
