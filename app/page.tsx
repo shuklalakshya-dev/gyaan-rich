@@ -12,9 +12,6 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <Workflow />
-      <section id="voice-agent">
-        
-      </section>
       <Footer />
     </main>
   )
