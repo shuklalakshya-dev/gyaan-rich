@@ -13,7 +13,7 @@ export default function Home() {
       <FeaturesSection />
       <Workflow />
       <section id="voice-agent">
-        <VoiceAgent />
+        
       </section>
       <Footer />
     </main>
