@@ -1,54 +1,56 @@
 import Link from "next/link"
-import LightRays from "./LightRays"
+import Galaxy from "./Galaxy"
 
 
 export function HeroSection() {
   return (
-    <section className="relative bg-black text-secondary-foreground py-20 md:py-32 overflow-hidden">
-      {/* LightRays Background */}
+    <section className="relative bg-black text-secondary-foreground py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden min-h-[80vh] sm:min-h-[85vh] md:min-h-[90vh]">
+      {/* Galaxy Background */}
       <div className="absolute inset-0 w-full h-full">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#00ffff"
-          raysSpeed={1.5}
-          lightSpread={1.8}
-          rayLength={3.2}
-          followMouse={true}
-          mouseInfluence={1.1}
-          noiseAmount={0.1}
-          distortion={0.05}
-          className="custom-rays"
+        <Galaxy 
+          mouseRepulsion
+          mouseInteraction
+          density={1}
+          glowIntensity={0.3}
+          saturation={0}
+          hueShift={140}
+          twinkleIntensity={0.3}
+          rotationSpeed={0.1}
+          repulsionStrength={2}
+          autoCenterRepulsion={0}
+          starSpeed={0.5}
+          speed={1}
         />
       </div>
       
       
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+      {/* Decorative elements - responsive sizing */}
+      <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-accent/5 rounded-full blur-3xl"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-center min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh]">
           {/* Content */}
-          <div className="space-y-6 text-center max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance text-accent leading-tight">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 text-center max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl w-full px-2 sm:px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-balance text-accent leading-tight">
               Empower Your <span className="text-accent">Education</span> Journey
             </h1>
-            <p className="text-lg md:text-xl text-secondary-foreground/80 text-balance">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-secondary-foreground/80 text-balance leading-relaxed px-2 sm:px-4 md:px-8">
               Gyan Rich provides comprehensive counselling, engaging lectures, and custom school websites to transform
-              educational experiences .
+              educational experiences.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 md:pt-6 justify-center items-stretch sm:items-center w-full max-w-md sm:max-w-none mx-auto">
               <a
                 href="https://forms.office.com/r/EvDTiBr8fE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity text-center"
+                className="bg-accent text-accent-foreground px-6 sm:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity text-center text-sm sm:text-base md:text-lg hover:scale-105 active:scale-95 transform duration-200"
               >
                 Start Your Journey
               </a>
               <Link
                 href="/services"
-                className="text-white border-2 border-accent px-8 py-3 rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors text-center"
+                className="text-white border-2 border-accent px-6 sm:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors text-center text-sm sm:text-base md:text-lg hover:scale-105 active:scale-95 transform duration-200"
               >
                 Explore Services
               </Link>
