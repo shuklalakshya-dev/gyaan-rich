@@ -1,61 +1,41 @@
+"use client"
+
 import { Navbar } from "@/components/navbar"
 import { PageHeader } from "@/components/page-header"
 import { Footer } from "@/components/footer"
 import { BlogCard } from "@/components/blog-card"
+import { useState, useEffect } from "react"
 
-const samplePosts = [
-  {
-    id: "1",
-    title: "The Future of Education: Embracing Digital Learning",
-    excerpt:
-      "Explore how digital transformation is reshaping the educational landscape and preparing students for the future.",
-    author: "Gyaan Rich",
-    category: "Education",
-    date: "Oct 15, 2024",
-  },
-  {
-    id: "2",
-    title: "Career Counselling: Finding Your Path",
-    excerpt: "Discover how proper career guidance can help you make informed decisions about your future.",
-    author: "Gyaan Rich",
-    category: "Career",
-    date: "Oct 10, 2024",
-  },
-  {
-    id: "3",
-    title: "Top 10 Tips for Exam Preparation",
-    excerpt: "Master the art of exam preparation with these proven strategies and techniques.",
-    author: "Gyaan Rich",
-    category: "Study Tips",
-    date: "Oct 5, 2024",
-  },
-  {
-    id: "4",
-    title: "Building Effective School Websites",
-    excerpt: "Learn how a well-designed school website can enhance communication and engagement.",
-    author: "Gyaan Rich",
-    category: "Technology",
-    date: "Sep 28, 2024",
-  },
-  {
-    id: "5",
-    title: "Student Success Stories",
-    excerpt: "Inspiring stories of students who achieved their dreams with proper guidance and support.",
-    author: "Gyaan Rich",
-    category: "Success",
-    date: "Sep 20, 2024",
-  },
-  {
-    id: "6",
-    title: "The Importance of Mentorship",
-    excerpt: "Understand how mentorship can accelerate your personal and professional growth.",
-    author: "Gyaan Rich",
-    category: "Mentorship",
-    date: "Sep 15, 2024",
-  },
-]
+interface BlogPost {
+  _id: string
+  title: string
+  excerpt: string
+  author: string
+  category: string
+  image?: string
+  createdAt: string
+}
 
 export default function BlogPage() {
+  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("/api/blog")
+      const data = await response.json()
+      setPosts(data)
+    } catch (error) {
+      console.error("Error fetching posts:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -73,19 +53,34 @@ export default function BlogPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {samplePosts.map((post) => (
-              <BlogCard
-                key={post.id}
-                id={post.id}
-                title={post.title}
-                excerpt={post.excerpt}
-                author={post.author}
-                category={post.category}
-                date={post.date}
-              />
-            ))}
-          </div>
+          {loading ? (
+            <div className="text-center py-12">
+              <p className="text-foreground/70">Loading blog posts...</p>
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-foreground/70">No blog posts available yet. Check back soon!</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <BlogCard
+                  key={post._id}
+                  id={post._id}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  author={post.author}
+                  category={post.category}
+                  date={new Date(post.createdAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                  image={post.image}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -90,8 +90,8 @@ export function Workflow() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-accent/10 rounded-full text-accent font-semibold text-xs md:text-sm mb-3 md:mb-4">
-            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-accent rounded-full"></span>
+          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-accent/10 rounded-full text-black  font-semibold text-xs md:text-sm mb-3 md:mb-4">
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-red-600 rounded-full"></span>
             How It Works
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent px-4">
@@ -121,13 +121,11 @@ export function Workflow() {
                     <div className={`relative w-48 h-48 rounded-full bg-gradient-to-br ${step.gradient} border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${
                       isActive ? "scale-105" : "scale-100"
                     }`}>
-                      <div className={`w-40 h-40 rounded-full bg-card flex flex-col items-center justify-center transition-opacity duration-200 ${
-                        isActive ? "bg-gradient-to-br " + step.hoverGradient : ""
-                      }`}>
-                        <Icon className={`w-12 h-12 text-accent mb-2 transition-transform duration-200 ${
+                      <div className="w-40 h-40 rounded-full bg-card flex flex-col items-center justify-center">
+                        <Icon className={`w-12 h-12 text-black mb-2 transition-transform duration-200 ${
                           isActive ? "scale-110 rotate-6" : ""
                         }`} />
-                        <div className="text-3xl font-bold text-accent">{String(index + 1).padStart(2, '0')}</div>
+                        <div className="text-3xl font-bold text-black">{String(index + 1).padStart(2, '0')}</div>
                       </div>
                     </div>
                   </div>
@@ -136,9 +134,7 @@ export function Workflow() {
                   <div className={`text-center transition-transform duration-200 ${
                     isActive ? "scale-102" : ""
                   }`}>
-                    <h3 className={`text-xl font-bold mb-3 transition-colors duration-200 ${
-                      isActive ? "text-accent" : ""
-                    }`}>
+                    <h3 className="text-xl font-bold mb-3">
                       {step.title}
                     </h3>
                     <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
@@ -154,7 +150,7 @@ export function Workflow() {
                           key={idx}
                           className="flex items-center gap-2 text-sm text-foreground/80"
                         >
-                          <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-accent shrink-0" />
                           <span>{detail}</span>
                         </div>
                       ))}
@@ -182,11 +178,11 @@ export function Workflow() {
                   onClick={() => setActiveStep(activeStep === step.id ? null : step.id)}
                 >
                   {/* Timeline Node */}
-                  <div className="relative flex-shrink-0">
+                  <div className="relative shrink-0">
                     <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${step.gradient} border-2 sm:border-3 md:border-4 border-background flex items-center justify-center transition-transform duration-300 will-change-transform ${
                       isActive ? "scale-110" : "scale-100"
                     }`}>
-                      <Icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent transition-transform duration-200 ${
+                      <Icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black transition-transform duration-200 ${
                         isActive ? "rotate-6" : ""
                       }`} />
                     </div>
@@ -202,16 +198,9 @@ export function Workflow() {
                     <div className={`bg-card rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 border-2 border-border transition-all duration-300 will-change-transform ${
                       isActive ? "scale-[1.02] border-accent/50 shadow-xl shadow-accent/10" : ""
                     }`}>
-                      {/* Gradient Background */}
-                      <div className={`absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br ${step.gradient} transition-opacity duration-300 ${
-                        isActive ? "opacity-100" : "opacity-0"
-                      }`}></div>
-
                       {/* Content */}
                       <div className="relative z-10">
-                        <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3 transition-colors duration-200 ${
-                          isActive ? "text-accent" : ""
-                        }`}>
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3">
                           {step.title}
                         </h3>
                         <p className="text-sm sm:text-base text-foreground/70 mb-3 md:mb-4 leading-relaxed">
@@ -227,7 +216,7 @@ export function Workflow() {
                               key={idx}
                               className="flex items-center gap-2 text-sm text-foreground/80"
                             >
-                              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-accent shrink-0" />
                               <span>{detail}</span>
                             </div>
                           ))}
@@ -248,14 +237,14 @@ export function Workflow() {
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 bg-yellow-400 text-accent-foreground px-6 sm:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200 text-sm md:text-base"
+              className="group inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-6 sm:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:scale-[1.02] transition-transform duration-200 text-sm md:text-base"
             >
               Start Your Journey
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             <a
               href="/services"
-              className="inline-flex items-center justify-center gap-2 border-2 border-yellow-400 text-yellow-400 px-6 sm:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-yellow-400/10 transition-colors duration-200 text-sm md:text-base"
+              className="inline-flex items-center justify-center gap-2 border-2 border-accent text-accent px-6 sm:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold hover:bg-accent/10 transition-colors duration-200 text-sm md:text-base"
             >
               View All Services
             </a>

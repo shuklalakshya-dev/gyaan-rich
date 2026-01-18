@@ -35,7 +35,7 @@ export function Footer() {
                 // { href: "/blog", label: "Blog" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-yellow-400 transition-colors">
+                  <Link href={link.href} className="hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -49,7 +49,7 @@ export function Footer() {
             <ul className="space-y-2">
               {["Counselling", "Webinar", "", "Consulting"].map((service) => (
                 <li key={service}>
-                  <Link href="/services" className="hover:text-yellow-400 transition-colors">
+                  <Link href="/services" className="hover:text-accent transition-colors">
                     {service}
                   </Link>
                 </li>
@@ -62,20 +62,20 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail size={18} className="text-yellow-400" />
-                <a href="mailto:gyanrich@outlook.in" className="hover:text-yellow-400 transition-colors">
+                <Mail size={18} className="text-accent" />
+                <a href="mailto:gyanrich@outlook.in" className="hover:text-accent transition-colors">
                   gyanrich@outlook.in
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone size={18} className="text-yellow-400" />
-                <a href="tel:+919876543210" className="hover:text-yellow-400 transition-colors">
+                <Phone size={18} className="text-accent" />
+                <a href="tel:+919876543210" className="hover:text-accent transition-colors">
                   +91 9453805716
                 
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin size={18} className="text-yellow-400 mt-1" />
+                <MapPin size={18} className="text-accent mt-1" />
                 <span>India</span>
               </li>
             </ul>

@@ -70,13 +70,8 @@ export function FeaturesSection() {
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div
-                    className={`group relative bg-card rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform h-full ${isHovered ? "scale-[1.02] shadow-xl shadow-yellow-400/20 border-yellow-400/50" : "scale-100"}`}
+                    className={`group relative bg-card rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 border-2 border-border transition-all duration-300 cursor-pointer will-change-transform h-full ${isHovered ? "scale-[1.02] shadow-xl shadow-accent/20 border-accent/50" : "scale-100"}`}
                   >
-                    {/* Gradient Background */}
-                    <div
-                      className={`absolute inset-0 rounded-2xl bg-yellow-400 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
-                    ></div>
-
                     {/* Content */}
                     <div className="relative z-10">
                       {/* Icon */}
@@ -86,10 +81,10 @@ export function FeaturesSection() {
                         </div>
                       </div>
 
-                      <h3 className={`text-xl sm:text-2xl font-bold mb-2 md:mb-3 transition-colors duration-200 ${isHovered ? "text-black" : ""}`}>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-2 md:mb-3">
                         {feature.title}
                       </h3>
-                      <p className={`text-foreground/70 text-sm sm:text-base md:text-lg transition-colors duration-200 ${isHovered ? "text-black/80" : ""}`}>
+                      <p className="text-foreground/70 text-sm sm:text-base md:text-lg">
                         {feature.description}
                       </p>
                     </div>

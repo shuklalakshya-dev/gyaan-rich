@@ -56,10 +56,10 @@ export default function CareerPage() {
 
           <div className="grid gap-8 max-w-4xl mx-auto">
             {jobListings.map((job) => (
-              <Card key={job.id} className="border-2 hover:border-yellow-400 transition-colors">
+              <Card key={job.id} className="border-2 hover:border-accent transition-colors">
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-start gap-3">
-                    <Briefcase className="w-6 h-6 text-yellow-400 mt-1" />
+                    <Briefcase className="w-6 h-6 text-accent mt-1" />
                     {job.title}
                   </CardTitle>
                   <CardDescription className="space-y-2 mt-4">
@@ -105,7 +105,7 @@ export default function CareerPage() {
                 </CardContent>
                 <CardFooter>
                   <Button 
-                    className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
                     onClick={() => window.open('https://forms.office.com/r/9LiiaKEJng', '_blank')}
                   >
                     Apply Now
@@ -122,7 +122,7 @@ export default function CareerPage() {
                 <CardTitle>Don't see a role that fits?</CardTitle>
                 <CardDescription>
                   We're always interested in hearing from talented individuals. Send us your resume at{" "}
-                  <a href="mailto:careers@gyanrich.com" className="text-yellow-400 hover:underline">
+                  <a href="mailto:careers@gyanrich.com" className="text-accent hover:underline">
                   gyanrich@outlook.in
                   </a>
                 </CardDescription>

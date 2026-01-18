@@ -30,8 +30,8 @@ export function HeroSection() {
         <div className="flex items-center justify-center min-h-[60vh]">
           {/* Content */}
           <div className="space-y-6 text-center max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance text-yellow-500 leading-tight">
-              Empower Your <span className="text-yellow-500">Education</span> Journey
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance text-accent leading-tight">
+              Empower Your <span className="text-accent">Education</span> Journey
             </h1>
             <p className="text-lg md:text-xl text-secondary-foreground/80 text-balance">
               Gyan Rich provides comprehensive counselling, engaging lectures, and custom school websites to transform
@@ -42,13 +42,13 @@ export function HeroSection() {
                 href="https://forms.office.com/r/EvDTiBr8fE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-yellow-400 text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-opacity text-center"
+                className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity text-center"
               >
                 Start Your Journey
               </a>
               <Link
                 href="/services"
-                className="text-white border-2 border-yellow-400 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors text-center"
+                className="text-white border-2 border-accent px-8 py-3 rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-colors text-center"
               >
                 Explore Services
               </Link>

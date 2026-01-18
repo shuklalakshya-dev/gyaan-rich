@@ -114,7 +114,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {services.map((service) => (
               <div key={service.id} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">{service.stats.value}</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">{service.stats.value}</div>
                 <div className="text-sm text-foreground/70">{service.stats.label}</div>
               </div>
             ))}
@@ -271,8 +271,8 @@ export default function ServicesPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-400/20 rounded-2xl mb-6 animate-bounce">
-            <BookOpen className="w-8 h-8 text-yellow-400" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 rounded-2xl mb-6 animate-bounce">
+            <BookOpen className="w-8 h-8 text-accent" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Institution?</h2>
           <p className="text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -283,14 +283,14 @@ export default function ServicesPage() {
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-yellow-400 gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-xl font-semibold hover:scale-105 hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300"
             >
               Contact Us Today
               <Zap className="w-5 h-5" />
             </a>
             <a
               href="/pricing"
-              className="inline-flex items-center gap-2 border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-xl font-semibold hover:bg-yellow-400/10 transition-all duration-300"
+              className="inline-flex items-center gap-2 border-2 border-accent text-accent px-8 py-4 rounded-xl font-semibold hover:bg-accent/10 transition-all duration-300"
             >
               View Pricing
             </a>

@@ -32,7 +32,7 @@ export function VoiceAgent() {
     <div className="min-h-screen bg-black py-8 sm:py-16 md:py-20 px-3 sm:px-4">
       <Card className="w-full max-w-3xl mx-auto bg-zinc-950 border-zinc-800 text-white">
         <CardHeader className="text-center space-y-2 sm:space-y-3 px-3 sm:px-6">
-          <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-400">
+          <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-accent">
             Know About Our Company by Our AI
           </CardTitle>
           <CardDescription className="text-zinc-400 text-sm sm:text-base">
@@ -49,14 +49,14 @@ export function VoiceAgent() {
                 "relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full transition-all duration-300 overflow-hidden border-3 sm:border-4",
                 isListening 
                   ? "border-red-500 animate-pulse shadow-lg shadow-red-500/50" 
-                  : "border-yellow-400 hover:border-yellow-300 hover:scale-105 shadow-lg shadow-yellow-400/30",
+                  : "border-accent hover:border-accent/80 hover:scale-105 shadow-lg shadow-accent/30",
                 isProcessing && "opacity-50 cursor-not-allowed"
               )}
               aria-label="Voice Agent Control"
             >
               {isProcessing ? (
                 <div className="w-full h-full flex items-center justify-center bg-zinc-900">
-                  <Loader2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 animate-spin text-yellow-400" />
+                  <Loader2 className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 animate-spin text-accent" />
                 </div>
               ) : (
                 <div className="relative w-full h-full bg-white">
@@ -76,7 +76,7 @@ export function VoiceAgent() {
           <div className="text-center px-2">
             <p className={cn(
               "text-sm sm:text-base font-medium transition-colors",
-              isProcessing && "text-yellow-400 animate-pulse",
+              isProcessing && "text-accent animate-pulse",
               isListening && !isProcessing && "text-green-400",
               !isListening && !isProcessing && !transcript && "text-zinc-400"
             )}>
@@ -97,7 +97,7 @@ export function VoiceAgent() {
           {/* Transcript Display */}
           {transcript && (
             <div className="space-y-2">
-              <p className="text-xs sm:text-sm font-semibold text-yellow-400">You said:</p>
+              <p className="text-xs sm:text-sm font-semibold text-accent">You said:</p>
               <div className="p-3 sm:p-4 bg-zinc-900 border border-zinc-800 rounded-lg">
                 <p className="text-sm sm:text-base text-zinc-200">{transcript}</p>
               </div>
@@ -107,8 +107,8 @@ export function VoiceAgent() {
           {/* Response Display */}
           {response && (
             <div className="space-y-2">
-              <p className="text-xs sm:text-sm font-semibold text-yellow-400">AI Response:</p>
-              <div className="p-3 sm:p-4 bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 rounded-lg">
+              <p className="text-xs sm:text-sm font-semibold text-accent">AI Response:</p>
+              <div className="p-3 sm:p-4 bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/30 rounded-lg">
                 <p className="text-sm sm:text-base text-zinc-100">{response}</p>
               </div>
             </div>
@@ -120,7 +120,7 @@ export function VoiceAgent() {
               <Button 
                 variant="outline" 
                 onClick={reset} 
-                className="bg-zinc-900 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all text-sm sm:text-base"
+                className="bg-zinc-900 border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all text-sm sm:text-base"
               >
                 🔄 Start New Conversation
               </Button>

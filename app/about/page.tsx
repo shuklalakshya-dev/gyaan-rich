@@ -86,12 +86,12 @@ export default function AboutPage() {
                 >
                   <div
                     className={`relative bg-card rounded-2xl p-8 border-2 border-border transition-all duration-300 h-full flex flex-col items-center text-center ${
-                      isHovered ? "scale-[1.02] shadow-2xl shadow-yellow-400/20 border-yellow-400/50 bg-yellow-400" : ""
+                      isHovered ? "scale-[1.02] shadow-2xl shadow-accent/20 border-accent/50 bg-accent" : ""
                     }`}
                   >
                     {/* Gradient Background */}
                     <div
-                      className={`absolute inset-0 rounded-2xl bg-yellow-400 transition-opacity duration-300 ${
+                      className={`absolute inset-0 rounded-2xl bg-accent transition-opacity duration-300 ${
                         isHovered ? "opacity-100" : "opacity-0"
                       }`}
                     ></div>

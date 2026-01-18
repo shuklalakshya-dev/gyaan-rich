@@ -13,7 +13,7 @@ export function Navbar() {
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/pricing", label: "Pricing" },
-   // { href: "/blog", label: "Blog" },
+    { href: "/blog", label: "Blogs" },
     { href: "/career", label: "Career" },
     { href: "/contact", label: "Contact" },
   ]
@@ -39,7 +39,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-yellow-400 transition-colors duration-200">
+              <Link key={link.href} href={link.href} className="hover:text-accent transition-colors duration-200">
                 {link.label}
               </Link>
             ))}
@@ -48,16 +48,10 @@ export function Navbar() {
           {/* CTA Buttons */}
           <div className="hidden md:flex gap-3">
             <a
-              href="#voice-agent"
-              className="border-2 border-yellow-400 text-white px-5 py-2 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all"
-            >
-              Try Voice Agent
-            </a>
-            <a
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-yellow-400 text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              className="bg-accent text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
               Get Started
             </a>
@@ -82,13 +76,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="#voice-agent"
-              className="block px-4 py-2 border-2 border-yellow-400 text-white rounded font-semibold text-center hover:bg-yellow-400 hover:text-black transition-all"
-              onClick={() => setIsOpen(false)}
-            >
-              Try Voice Agent
-            </a>
             <a
               href="https://forms.office.com/r/EvDTiBr8fE"
               target="_blank"
