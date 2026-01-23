@@ -8,7 +8,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Briefcase, MapPin, Clock, IndianRupee } from "lucide-react"
 
 export default function CareerPage() {
-
   const jobListings = [
     {
       id: 1,
