@@ -340,18 +340,18 @@ export default function BlogPage() {
 
             <div>
               <label htmlFor="content" className="block text-sm font-medium mb-2">
-                Content (HTML supported) *
+                Content *
               </label>
               <textarea
                 id="content"
                 value={formData.content}
                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-accent focus:outline-none h-96 font-mono text-sm"
-                placeholder="Write your blog content here. You can use HTML tags like <h2>, <p>, <ul>, <li>, etc."
+                className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-accent focus:outline-none h-96 text-sm"
+                placeholder="Write your blog content here. Use blank lines to separate paragraphs."
                 required
               />
               <p className="text-sm text-foreground/50 mt-2">
-                Tip: Use HTML tags for formatting. Example: &lt;h2&gt;Heading&lt;/h2&gt; &lt;p&gt;Paragraph&lt;/p&gt; &lt;ul&gt;&lt;li&gt;List item&lt;/li&gt;&lt;/ul&gt;
+                Tip: Press Enter twice to create a new paragraph. Your text will be automatically formatted.
               </p>
             </div>
 

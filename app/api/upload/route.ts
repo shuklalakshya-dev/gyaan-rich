@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { promises as fs } from "fs"
-import path from "path"
+import { connectToDatabase } from "@/lib/db"
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,27 +20,29 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "File size must be less than 5MB" }, { status: 400 })
     }
 
-    // Create upload directory if it doesn't exist
-    const uploadDir = path.join(process.cwd(), "public", "blog-images")
-    try {
-      await fs.access(uploadDir)
-    } catch {
-      await fs.mkdir(uploadDir, { recursive: true })
-    }
-
     // Generate unique filename
     const timestamp = Date.now()
     const randomStr = Math.random().toString(36).substring(2, 8)
     const originalName = file.name.replace(/\s+/g, "-").replace(/[^a-zA-Z0-9.-]/g, "")
     const fileName = `${timestamp}-${randomStr}-${originalName}`
-    const filePath = path.join(uploadDir, fileName)
 
-    // Read file buffer
+    // Convert file to base64
     const buffer = await file.arrayBuffer()
-    await fs.writeFile(filePath, Buffer.from(buffer))
+    const base64 = Buffer.from(buffer).toString("base64")
+    const dataUrl = `data:${file.type};base64,${base64}`
 
-    // Return the public URL
-    const imageUrl = `/blog-images/${fileName}`
+    // Store in MongoDB
+    const { db } = await connectToDatabase()
+    await db.collection("images").insertOne({
+      fileName,
+      mimeType: file.type,
+      size: file.size,
+      data: dataUrl,
+      createdAt: new Date(),
+    })
+
+    // Return the API URL to serve the image
+    const imageUrl = `/api/images/${fileName}`
 
     console.log("Image uploaded:", imageUrl)
     return NextResponse.json({ success: true, imageUrl, fileName })

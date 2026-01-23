@@ -19,6 +19,22 @@ interface BlogPost {
   createdAt: string
 }
 
+// Convert plain text to HTML paragraphs
+function formatContent(content: string): string {
+  // If content already contains HTML tags, return as is
+  if (/<[^>]+>/.test(content)) {
+    return content
+  }
+  
+  // Split by double newlines (paragraphs) and wrap in <p> tags
+  return content
+    .split(/\n\s*\n/)
+    .map(paragraph => paragraph.trim())
+    .filter(paragraph => paragraph.length > 0)
+    .map(paragraph => `<p>${paragraph.replace(/\n/g, '<br>')}</p>`)
+    .join('')
+}
+
 export default function BlogPostPage() {
   const params = useParams()
   const [post, setPost] = useState<BlogPost | null>(null)
@@ -234,7 +250,7 @@ export default function BlogPostPage() {
           {/* Content */}
           <div className="prose prose-lg prose-invert max-w-none animate-fade-in-delayed">
             <div
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
               className="
                 text-white/80 leading-relaxed text-lg
                 [&>h1]:text-5xl [&>h1]:font-bold [&>h1]:text-white [&>h1]:mt-16 [&>h1]:mb-8 [&>h1]:leading-tight [&>h1]:animate-slide-in
