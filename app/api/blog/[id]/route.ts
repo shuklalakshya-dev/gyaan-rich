@@ -1,46 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { promises as fs } from "fs"
-import path from "path"
-
-interface BlogPost {
-  _id: string
-  title: string
-  excerpt: string
-  content: string
-  author: string
-  category: string
-  published: boolean
-  image: string | null
-  createdAt: string
-  updatedAt: string
-}
-
-const BLOG_FILE = path.join(process.cwd(), "public", "blog-posts.json")
-
-async function readBlogPosts(): Promise<BlogPost[]> {
-  try {
-    const data = await fs.readFile(BLOG_FILE, "utf-8")
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
-
-async function writeBlogPosts(posts: BlogPost[], retries = 3): Promise<void> {
-  for (let attempt = 1; attempt <= retries; attempt++) {
-    try {
-      await fs.writeFile(BLOG_FILE, JSON.stringify(posts, null, 2))
-      return
-    } catch (error: any) {
-      console.error(`Write attempt ${attempt} failed:`, error.message)
-      if (attempt === retries) {
-        throw error
-      }
-      // Wait briefly before retrying (helps with OneDrive sync issues)
-      await new Promise(resolve => setTimeout(resolve, 100 * attempt))
-    }
-  }
-}
+import { connectToDatabase } from "@/lib/db"
+import { ObjectId } from "mongodb"
 
 export async function GET(
   request: NextRequest,
@@ -48,14 +8,30 @@ export async function GET(
 ) {
   try {
     const { id } = await params
-    const posts = await readBlogPosts()
-    const post = posts.find(p => p._id === id)
+    const { db } = await connectToDatabase()
+    
+    let post
+    // Try to find by ObjectId first, then by string _id for backwards compatibility
+    try {
+      post = await db.collection("blogs").findOne({ _id: new ObjectId(id) })
+    } catch {
+      // If ObjectId parsing fails, try finding by string id
+      post = await db.collection("blogs").findOne({ _id: id as any })
+    }
 
     if (!post) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 })
     }
 
-    return NextResponse.json(post)
+    // Transform for client compatibility
+    const transformedPost = {
+      ...post,
+      _id: post._id.toString(),
+      createdAt: post.createdAt instanceof Date ? post.createdAt.toISOString() : post.createdAt,
+      updatedAt: post.updatedAt instanceof Date ? post.updatedAt.toISOString() : post.updatedAt,
+    }
+
+    return NextResponse.json(transformedPost)
   } catch (error) {
     console.error("Error fetching blog post:", error)
     return NextResponse.json({ error: "Failed to fetch blog post" }, { status: 500 })
@@ -75,15 +51,9 @@ export async function PUT(
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    const posts = await readBlogPosts()
-    const postIndex = posts.findIndex(p => p._id === id)
-
-    if (postIndex === -1) {
-      return NextResponse.json({ error: "Post not found" }, { status: 404 })
-    }
-
-    posts[postIndex] = {
-      ...posts[postIndex],
+    const { db } = await connectToDatabase()
+    
+    const updateData = {
       title,
       excerpt,
       content,
@@ -91,10 +61,27 @@ export async function PUT(
       category,
       published,
       image,
-      updatedAt: new Date().toISOString(),
+      updatedAt: new Date(),
     }
 
-    await writeBlogPosts(posts)
+    let result
+    try {
+      result = await db.collection("blogs").updateOne(
+        { _id: new ObjectId(id) },
+        { $set: updateData }
+      )
+    } catch {
+      // Fallback for string _id
+      result = await db.collection("blogs").updateOne(
+        { _id: id as any },
+        { $set: updateData }
+      )
+    }
+
+    if (result.matchedCount === 0) {
+      return NextResponse.json({ error: "Post not found" }, { status: 404 })
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Error updating blog post:", error)
@@ -108,14 +95,20 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params
-    const posts = await readBlogPosts()
-    const filteredPosts = posts.filter(p => p._id !== id)
+    const { db } = await connectToDatabase()
 
-    if (filteredPosts.length === posts.length) {
+    let result
+    try {
+      result = await db.collection("blogs").deleteOne({ _id: new ObjectId(id) })
+    } catch {
+      // Fallback for string _id
+      result = await db.collection("blogs").deleteOne({ _id: id as any })
+    }
+
+    if (result.deletedCount === 0) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 })
     }
 
-    await writeBlogPosts(filteredPosts)
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Error deleting blog post:", error)
