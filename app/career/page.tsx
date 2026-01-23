@@ -122,7 +122,7 @@ export default function CareerPage() {
                 <CardTitle>Don't see a role that fits?</CardTitle>
                 <CardDescription>
                   We're always interested in hearing from talented individuals. Send us your resume at{" "}
-                  <a href="mailto:careers@gyanrich.com" className="text-accent hover:underline">
+                  <a href="mailto:careers@gyanrich.com" className="text-black hover:underline">
                   gyanrich@outlook.in
                   </a>
                 </CardDescription>

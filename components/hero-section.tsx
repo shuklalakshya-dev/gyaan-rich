@@ -1,32 +1,22 @@
 import Link from "next/link"
-import Galaxy from "./Galaxy"
+import FloatingLines from "./FloatingLines"
 
 
 export function HeroSection() {
   return (
     <section className="relative bg-black text-secondary-foreground py-12 sm:py-16 md:py-24 lg:py-32 overflow-hidden min-h-[80vh] sm:min-h-[85vh] md:min-h-[90vh]">
-      {/* Galaxy Background */}
+      {/* FloatingLines Background */}
       <div className="absolute inset-0 w-full h-full">
-        <Galaxy 
-          mouseRepulsion
-          mouseInteraction
-          density={1}
-          glowIntensity={0.3}
-          saturation={0}
-          hueShift={140}
-          twinkleIntensity={0.3}
-          rotationSpeed={0.1}
-          repulsionStrength={2}
-          autoCenterRepulsion={0}
-          starSpeed={0.5}
-          speed={1}
+        <FloatingLines 
+          enabledWaves={["top","middle","bottom"]}
+          lineCount={5}
+          lineDistance={5}
+          bendRadius={5}
+          bendStrength={-0.5}
+          interactive={true}
+          parallax={true}
         />
       </div>
-      
-      
-      {/* Decorative elements - responsive sizing */}
-      <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-accent/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-accent/5 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-center min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh]">

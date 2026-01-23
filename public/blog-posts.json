@@ -10,5 +10,41 @@
     "image": "/blog-images/1768760840570-zzituf-AdobeStock1191691364Preview.jpeg",
     "createdAt": "2026-01-18T18:27:25.624Z",
     "updatedAt": "2026-01-18T18:27:25.624Z"
+  },
+  {
+    "_id": "1769183841138",
+    "title": "Test Post",
+    "excerpt": "Test excerpt",
+    "content": "Test content",
+    "author": "Test",
+    "category": "Test",
+    "published": true,
+    "image": null,
+    "createdAt": "2026-01-23T15:57:21.138Z",
+    "updatedAt": "2026-01-23T15:57:21.138Z"
+  },
+  {
+    "_id": "1769183852228",
+    "title": "Test Post",
+    "excerpt": "Test excerpt",
+    "content": "Test content",
+    "author": "Test",
+    "category": "Test",
+    "published": true,
+    "image": null,
+    "createdAt": "2026-01-23T15:57:32.228Z",
+    "updatedAt": "2026-01-23T15:57:32.228Z"
+  },
+  {
+    "_id": "1769186193712",
+    "title": "New Test Post",
+    "excerpt": "Testing the updated API",
+    "content": "This is test content for the new blog post",
+    "author": "Admin",
+    "category": "Technology",
+    "published": true,
+    "image": null,
+    "createdAt": "2026-01-23T16:36:33.712Z",
+    "updatedAt": "2026-01-23T16:36:33.712Z"
   }
 ]

@@ -8,18 +8,42 @@ async function ensureBlogFile() {
   try {
     await fs.access(BLOG_FILE)
   } catch {
+    // Create directory if it doesn't exist
+    const dir = path.dirname(BLOG_FILE)
+    try {
+      await fs.access(dir)
+    } catch {
+      await fs.mkdir(dir, { recursive: true })
+    }
     await fs.writeFile(BLOG_FILE, JSON.stringify([]))
   }
 }
 
 async function readBlogPosts() {
   await ensureBlogFile()
-  const data = await fs.readFile(BLOG_FILE, "utf-8")
-  return JSON.parse(data)
+  try {
+    const data = await fs.readFile(BLOG_FILE, "utf-8")
+    return JSON.parse(data)
+  } catch (error) {
+    console.error("Error reading blog posts:", error)
+    return []
+  }
 }
 
-async function writeBlogPosts(posts: any[]) {
-  await fs.writeFile(BLOG_FILE, JSON.stringify(posts, null, 2))
+async function writeBlogPosts(posts: any[], retries = 3): Promise<void> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      await fs.writeFile(BLOG_FILE, JSON.stringify(posts, null, 2))
+      return
+    } catch (error: any) {
+      console.error(`Write attempt ${attempt} failed:`, error.message)
+      if (attempt === retries) {
+        throw error
+      }
+      // Wait briefly before retrying (helps with OneDrive sync issues)
+      await new Promise(resolve => setTimeout(resolve, 100 * attempt))
+    }
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -63,9 +87,14 @@ export async function POST(request: NextRequest) {
 
       console.log("Blog post created with ID:", newPost._id)
       return NextResponse.json({ success: true, id: newPost._id }, { status: 201 })
-    } catch (fileError) {
+    } catch (fileError: any) {
       console.error("File error:", fileError)
-      return NextResponse.json({ error: "Failed to save blog post" }, { status: 500 })
+      const errorMessage = fileError.code === 'EBUSY' 
+        ? "File is being synced. Please try again in a moment."
+        : fileError.code === 'ENOENT'
+        ? "Blog data file not found. Please refresh and try again."
+        : "Failed to save blog post. Please try again."
+      return NextResponse.json({ error: errorMessage }, { status: 500 })
     }
   } catch (error) {
     console.error("Unexpected error in POST:", error)

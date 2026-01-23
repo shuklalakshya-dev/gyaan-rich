@@ -26,8 +26,20 @@ async function readBlogPosts(): Promise<BlogPost[]> {
   }
 }
 
-async function writeBlogPosts(posts: BlogPost[]) {
-  await fs.writeFile(BLOG_FILE, JSON.stringify(posts, null, 2))
+async function writeBlogPosts(posts: BlogPost[], retries = 3): Promise<void> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      await fs.writeFile(BLOG_FILE, JSON.stringify(posts, null, 2))
+      return
+    } catch (error: any) {
+      console.error(`Write attempt ${attempt} failed:`, error.message)
+      if (attempt === retries) {
+        throw error
+      }
+      // Wait briefly before retrying (helps with OneDrive sync issues)
+      await new Promise(resolve => setTimeout(resolve, 100 * attempt))
+    }
+  }
 }
 
 export async function GET(
