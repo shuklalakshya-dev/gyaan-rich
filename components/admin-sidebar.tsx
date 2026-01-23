@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
-import { LayoutDashboard, Mail, School, BookOpen, LogOut } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { LayoutDashboard, Mail, School, BookOpen } from "lucide-react"
 
 const menuItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -13,16 +13,6 @@ const menuItems = [
 
 export function AdminSidebar() {
   const pathname = usePathname()
-  const router = useRouter()
-
-  const handleLogout = async () => {
-    try {
-      await fetch("/api/admin/logout", { method: "POST" })
-      router.push("/admin/login")
-    } catch (error) {
-      console.error("Logout error:", error)
-    }
-  }
 
   return (
     <aside className="w-64 bg-secondary text-secondary-foreground min-h-screen border-r border-secondary-foreground/20">
@@ -52,16 +42,6 @@ export function AdminSidebar() {
             )
           })}
         </nav>
-      </div>
-
-      <div className="absolute bottom-6 left-6 right-6">
-        <button
-          onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-secondary-foreground/10 transition-colors text-secondary-foreground"
-        >
-          <LogOut size={20} />
-          <span>Logout</span>
-        </button>
       </div>
     </aside>
   )
