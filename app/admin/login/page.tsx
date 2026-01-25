@@ -1,15 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { Lock } from "lucide-react"
-import Image from "next/image"
 
 export default function AdminLogin() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,7 +25,9 @@ export default function AdminLogin() {
       const data = await response.json()
 
       if (response.ok) {
-        router.push("/admin")
+        // Use window.location for a full page navigation to ensure cookie is properly recognized
+        window.location.href = "/admin"
+        return // Don't set loading to false since we're navigating away
       } else {
         setError(data.error || "Invalid password")
       }
