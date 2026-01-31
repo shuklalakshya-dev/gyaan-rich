@@ -283,7 +283,7 @@ export default function BlogPostPage() {
                 </div>
                 <div>
                   <p className="text-white font-bold text-xl mb-1">{post.author}</p>
-                  <p className="text-white/60 text-sm">Content Writer at Gyaan Rich</p>
+                  <p className="text-white/60 text-sm">Content Writer at GyanRich</p>
                   <p className="text-white/40 text-xs mt-1">Education Expert & Story Teller</p>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export default function BlogPostPage() {
             Ready to Start Your Educational Journey?
           </h2>
           <p className="text-xl text-white/70 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-delayed">
-            Join thousands of students who have transformed their learning experience with Gyaan Rich. Let's achieve excellence together.
+            Join thousands of students who have transformed their learning experience with GyanRich. Let's achieve excellence together.
           </p>
           <div className="flex flex-wrap justify-center gap-5 animate-fade-in-delayed-2">
             <Link
