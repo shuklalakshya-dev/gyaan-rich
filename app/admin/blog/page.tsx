@@ -31,7 +31,7 @@ export default function BlogPage() {
     title: "",
     excerpt: "",
     content: "",
-    author: "Gyaan Rich",
+    author: "GyanRich",
     category: "Education",
     image: "",
   })
