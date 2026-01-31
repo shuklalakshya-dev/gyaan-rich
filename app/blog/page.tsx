@@ -83,29 +83,6 @@ export default function BlogPage() {
           )}
         </div>
       </section>
-
-      <section className="bg-secondary text-secondary-foreground py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Subscribe to Our Newsletter</h2>
-          <p className="text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Get the latest articles and resources delivered to your inbox.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg bg-secondary-foreground/10 border border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/50 focus:outline-none focus:border-accent"
-            />
-            <button
-              type="submit"
-              className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </section>
-
       <Footer />
     </main>
   )
